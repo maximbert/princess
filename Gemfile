@@ -20,7 +20,7 @@ group :assets do
   gem 'coffee-rails'
   #gem 'compass-rails'
   gem 'haml_coffee_assets'
-  gem 'handlebars_assets'
+  #gem 'handlebars_assets'
   gem 'uglifier'
 end
 

@@ -3,18 +3,18 @@ define [
   'chaplin'
   'handlebars'
   'lib/view_helper' # Just load the view helpers, no return value
-], (Chaplin) ->
+  'text!templates/template'
+], (Chaplin, Handlebars) ->
   'use strict'
 
   class View extends Chaplin.View
     name: "Panda 666"
     template: "Hello {{name}}" #require 'templates/site'
-    #template: require 'views/base/templates/template'
-
+    template: require 'text!templates/template' # views/base/templates/template'
     getTemplateData: => @
 
     #getTemplateFunction: => Handlebars.compile @template
-    getTemplateFunction: => require 'assets/templates/template'
+    getTemplateFunction: => require 'text!templates/template'
 
     initialize: ->
       console.log "begin initializing 1 "
@@ -22,7 +22,7 @@ define [
       try
         #console.log "trying"
         #t = require('text!templates/template.hbs')
-        t = require '/assets/templates/template.hbs'
+        t = require 'text!templates/template'
         console.log "t = "+t
       catch e
         console.log "\t\tWARNING: Caught an exception... \n\t\t" + e

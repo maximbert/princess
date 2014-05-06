@@ -1,7 +1,5 @@
 # Require HAML Coffee templates
 #= require hamlcoffee
-#= require handlebars
-#= require_tree ./templates
 
 # Bootstrap the application
 require [
