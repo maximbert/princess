@@ -3,18 +3,19 @@ define [
   'chaplin'
   'handlebars'
   'lib/view_helper' # Just load the view helpers, no return value
-  'text!templates/template'
+  'text!templates/plaintext.hbs'
 ], (Chaplin, Handlebars) ->
   'use strict'
-
+  window.handlebars = Handlebars
   class View extends Chaplin.View
     name: "Panda 666"
     template: "Hello {{name}}" #require 'templates/site'
-    template: require 'text!templates/template' # views/base/templates/template'
+    template: require 'text!templates/plaintext.hbs' # views/base/templates/template'
     getTemplateData: => @
 
-    #getTemplateFunction: => Handlebars.compile @template
-    getTemplateFunction: => require 'text!templates/template'
+    getTemplateFunction: =>
+      template_values = myvariable: "myvalue"
+      window.handlebars.default.compile(@template)(template_values)
 
     initialize: ->
       console.log "begin initializing 1 "
