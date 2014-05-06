@@ -13,7 +13,7 @@ module Requirejs::Rails
       super
       self.manifest = nil
 
-      self.logical_asset_filter = [/\.js$/,/\.html$/,/\.txt$/]
+      self.logical_asset_filter = [/\.js$/,/\.html$/,/\.txt$/,/\.hbs$/]
       self.tmp_dir = Rails.root + 'tmp'
       self.bin_dir = Pathname.new(__FILE__+'/../../../../bin').cleanpath
 
