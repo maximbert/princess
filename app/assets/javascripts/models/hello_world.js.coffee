@@ -5,9 +5,8 @@ define [
   'use strict'
 
   class HelloWorld extends Model
-
     defaults:
-      message: 'Hello World!'
+      name: 'Pandao'
 
     #initialize: (attributes, options) ->
       #super

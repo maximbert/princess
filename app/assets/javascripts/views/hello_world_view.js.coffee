@@ -1,15 +1,19 @@
+templatePath = 'text!templates/plaintext.hbs.txt'
+
 define [
   'views/base/view'
-], (View, template) ->
+  templatePath
+], (View, Template) ->
   'use strict'
 
   class HelloWorldView extends View
-
-    templateName: 'hello_world'
-
     className: 'hello-world'
-
-    # Automatically append to the DOM on render
     container: '#page-container'
-    # Automatically render after initialize
-    autoRender: true
+    autoRender: yes
+
+    template: Template
+    #template = null
+
+    initialize: ->
+      super
+      console.log "HelloWorldView did initialize"
